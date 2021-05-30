@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" rows="2" id="description" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="dateReleased">Date Released</label>
+        <input class="form-control" type="date" id="dateReleased" formControlName="dateReleased">
+    </div>
+    <div class="form-group">
+        <label for="rating">Rating (out of 10)</label>
+        <input class="form-control" type="number" id="rating" formControlName="rating">
+    </div>
+
+    <div>
+        <button class="btn btn-primary" type="submit" [disabled]="!gameForm.valid">Save</button>
+        <button class="btn btn-light" (click)="onCancel()">Cancel</button>
+    </div>
+</form>

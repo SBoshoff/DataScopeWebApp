@@ -23,9 +23,9 @@ namespace DataScopeWebApp.Controllers
         }
 
         [HttpGet("pagedList")]
-        public async Task<List<Game>> GetPagedList(int pageSize, int pageNum)
+        public async Task<GamePageData> GetPagedList(int pageSize, int pageNum)
         {
-            List<Game> games = new List<Game>();
+            GamePageData games = new GamePageData();
             try
             {
                 games = await _gameService.GetPagedListOfGames(pageSize, pageNum);

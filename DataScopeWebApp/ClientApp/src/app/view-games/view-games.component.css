@@ -1,0 +1,9 @@
+.tableControls > *{
+    padding: 5px;
+}
+
+td {
+    padding: 6px;
+    border: 1px solid lightgray;
+    vertical-align: middle;
+}

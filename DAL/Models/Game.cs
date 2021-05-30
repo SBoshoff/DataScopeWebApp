@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DAL.Models
@@ -10,5 +11,11 @@ namespace DAL.Models
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int Rating { get; set; }
+    }
+
+    public class GamePageData
+    {
+        public List<Game> Games { get; set; }
+        public int AllGamesCount { get; set; }
     }
 }

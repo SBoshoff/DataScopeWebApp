@@ -8,7 +8,7 @@ namespace BusinessLogic.Services.Interfaces
 {
     public interface IGameService
     {
-        public Task<List<Game>> GetPagedListOfGames(int pageSize, int pageNum);
+        public Task<GamePageData> GetPagedListOfGames(int pageSize, int pageNum);
         public Task<Game> GetGameById(int id);
         public Task<Game> GetGameByName(string name);
         public Task<Game> AddGame(Game game);
