@@ -1,7 +1,8 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LatestDateValidator } from '../directives/latest-date-validator.validator';
 import { Game } from '../models/game.model';
 import { HttpServiceService } from '../services/http-service.service';
 
@@ -16,8 +17,8 @@ export class EditGameComponent implements OnInit {
   gameForm = new FormGroup({
     name: new FormControl(this.game.name),
     description: new FormControl(this.game.description),
-    dateReleased: new FormControl(this.game.releaseDate),
-    rating: new FormControl(this.game.rating)
+    dateReleased: new FormControl(this.game.releaseDate, [LatestDateValidator()]),
+    rating: new FormControl(this.game.rating, [Validators.max(10), Validators.min(1)])
   })
 
 
@@ -30,6 +31,10 @@ export class EditGameComponent implements OnInit {
         this.fetchGame(parseInt(param.id));
       }
     })
+  }
+
+  get gameFormControl() {
+    return this.gameForm.controls;
   }
 
   fetchGame(id: number){

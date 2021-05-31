@@ -106,6 +106,19 @@ namespace DataScopeWebApp.Tests
         }
 
         [Test]
+        public void AddEmptyGameTest()
+        {
+            //Arrange
+            Game game = new Game();
+
+            //Act
+            var result = _repository.Insert(game).Result;
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
         public void PutGameTest()
         {
             //Arrange
