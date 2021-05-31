@@ -20,6 +20,7 @@ This is my project for the DataScope coding exercise. It is a simple CRUD-enable
   * This will attempt to build the application, so give npm time to install everything.
   * Confirm that the Database "GamesDB" is created and populated with 9 items.
 * Run the application through Visual Studio.
+  * If you receive a timeout error for the Angular CLI, refresh until resolved. This is a known issue with SPAs in .NET that I have yet to resolve. 
 
 ## Notes
 
