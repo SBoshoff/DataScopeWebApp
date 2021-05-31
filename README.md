@@ -23,3 +23,7 @@ This is my project for the DataScope coding exercise. It is a simple CRUD-enable
 ## Notes
 
 * Unit tests are fairly sparse and only cover repository operations. While they do cover all CRUD operations, they are most comprehensive around fetching paged lists.
+* There are a few things I would have liked to add but found that I could not due to hardware issues that slowed down development severely, especially on the frontend:
+  * Local storage/caching (preferably by using a state manager like npmx). At the moment API calls are being made far more often than they should.
+  * Up-to-date Angular framework (the update process itself was agonising)
+  * Use of Angular-mat for tables.
