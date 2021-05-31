@@ -11,12 +11,13 @@ This is my project for the DataScope coding exercise. It is a simple CRUD-enable
 
 ## Requirements
 
-* Visual Studio 2019
+* Visual Studio 2019 (at least 16.5)
 * SQL Server Management Studio 2019
 
 ## To Run
 
 * To set up the database, open the Package Manager console in VS, set the Default Project to DAL, and run `update-database`.
+  * This will attempt to build the application, so give npm time to install everything.
   * Confirm that the Database "GamesDB" is created and populated with 9 items.
 * Run the application through Visual Studio.
 
