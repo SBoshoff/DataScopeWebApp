@@ -11,6 +11,9 @@ import { HttpServiceService } from '../services/http-service.service';
   templateUrl: './edit-game.component.html',
   styleUrls: ['./edit-game.component.css']
 })
+/**
+ * The main component to add or edit a game
+ */
 export class EditGameComponent implements OnInit {
   game: Game = new Game();
 
@@ -37,6 +40,10 @@ export class EditGameComponent implements OnInit {
     return this.gameForm.controls;
   }
 
+  /**
+   * Retrieves a single game based on ID
+   * @param id the ID of the game to fetch
+   */
   fetchGame(id: number){
     this.httpService.getGameById(id).subscribe({
       next: (result: Game) => {
@@ -52,6 +59,9 @@ export class EditGameComponent implements OnInit {
     })
   }
 
+  /**
+   * Main submit form function. Redirects to view-games on complete
+   */
   onSubmit(){
     this.game.name = this.gameForm.get('name').value;
     this.game.description = this.gameForm.get('description').value;
@@ -74,6 +84,9 @@ export class EditGameComponent implements OnInit {
     }
   }
 
+  /**
+   * A cancel function. Redirects to view-games
+   */
   onCancel(){
     this.route.navigate(['/view']);
   }

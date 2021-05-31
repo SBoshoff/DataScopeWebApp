@@ -7,6 +7,7 @@ import { HttpServiceService } from '../services/http-service.service';
   templateUrl: './view-games.component.html',
   styleUrls: ['./view-games.component.css']
 })
+/** Main component for viewing all games in the database */
 export class ViewGamesComponent implements OnInit {
 
   data: GamePageData = new GamePageData();
@@ -21,6 +22,10 @@ export class ViewGamesComponent implements OnInit {
     this.fetchData();
   }
 
+  /**
+   * Fetches a paged list of games from the API
+   * Uses bound values pageSize and pageNum
+   */
   fetchData(){
     this.httpService.getPagedGames(this.pageSize, this.pageNum).subscribe({
       next: (result) => {
@@ -32,6 +37,10 @@ export class ViewGamesComponent implements OnInit {
     })
   }
 
+  /**
+   * Calls the delete method in the API 
+   * @param game
+   */
   delete(game: Game){
     this.httpService.deleteGame(game).subscribe({
       next: (result) => {console.log('Game successfully deleted: ', result)},
@@ -40,6 +49,11 @@ export class ViewGamesComponent implements OnInit {
     })
   }
 
+  /**
+   * Changes page data of the list
+   * @param value can either be 1 (next) or -1 (previous), which gets added to the current page value
+   * @returns void if page data is invalid
+   */
   changePage(value: number){
     console.log(this.pageNum, value)
     if ((this.pageNum === 1 && value < 0)
@@ -52,6 +66,9 @@ export class ViewGamesComponent implements OnInit {
     }
   }
 
+  /**
+   * Filters data from the API based on bound name value
+   */
   filterData(){
     console.log(this.searchQuery);
     if (this.searchQuery === ''){
