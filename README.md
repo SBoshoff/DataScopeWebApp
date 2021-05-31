@@ -2,6 +2,13 @@
 
 This is my project for the DataScope coding exercise. It is a simple CRUD-enabled web application that displays a list of games, as well as allowing users to add, edit or remove games.
 
+## Software Used
+
+* .NET Core 3.1
+* Angular 8.2
+* Entity Framework Core 5.0.6
+* NUnit and Moq for unit tests
+
 ## Requirements
 
 * Visual Studio 2019
