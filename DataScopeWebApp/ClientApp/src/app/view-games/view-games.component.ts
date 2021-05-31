@@ -13,6 +13,7 @@ export class ViewGamesComponent implements OnInit {
   pageSize: number = 5;
   pageNum: number = 1;
   totalPages: number = 1;
+  searchQuery: string = '';
 
   constructor(private httpService: HttpServiceService) { }
 
@@ -48,6 +49,19 @@ export class ViewGamesComponent implements OnInit {
     else {
       this.pageNum += value;
       this.fetchData();
+    }
+  }
+
+  filterData(){
+    console.log(this.searchQuery);
+    if (this.searchQuery === ''){
+      this.fetchData();
+    }
+    else {
+      this.httpService.searchGamesByName(this.searchQuery).subscribe({
+        next: (result) => {this.data = result},
+        error: (error) => {console.log("Could not filter list: ", error)}
+      })
     }
   }
 

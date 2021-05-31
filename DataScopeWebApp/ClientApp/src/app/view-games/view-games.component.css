@@ -2,6 +2,10 @@
     padding: 5px;
 }
 
+.searchControls > * {
+    margin: 5px;
+}
+
 td {
     padding: 6px;
     border: 1px solid lightgray;

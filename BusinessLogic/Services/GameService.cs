@@ -36,10 +36,13 @@ namespace BusinessLogic.Services
             return await _gameRepository.Get(id);
         }
 
-        public async Task<Game> GetGameByName(string name)
+        public async Task<GamePageData> GetGamesByName(string name)
         {
-            List<Game> games = await _gameRepository.GetList();
-            return games.Where(g => g.Name.ToLower().Contains(name.ToLower())).FirstOrDefault();
+            GamePageData pageData = new GamePageData();
+            pageData.AllGamesCount = _gameRepository.GetList().Result.Count();
+            var list = await _gameRepository.GetList();
+            pageData.Games = list.Where(g => g.Name.ToLower().Contains(name.ToLower())).ToList();
+            return pageData;
         }
 
         public async Task<GamePageData> GetPagedListOfGames(int pageSize, int pageNum)

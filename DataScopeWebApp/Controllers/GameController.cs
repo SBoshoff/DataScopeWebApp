@@ -54,18 +54,18 @@ namespace DataScopeWebApp.Controllers
         }
 
         [HttpGet("getByName")]
-        public async Task<Game> GetByName(string name)
+        public async Task<GamePageData> GetByName(string name)
         {
-            Game game = new Game();
+            GamePageData games = new GamePageData();
             try
             {
-                game = await _gameService.GetGameByName(name);
+                games = await _gameService.GetGamesByName(name);
             }
             catch (Exception e)
             {
                 _logger.LogError($"An exception has occurred: ${e.Message}");
             }
-            return game;
+            return games;
         }
 
         [HttpPost("addGame")]

@@ -1,11 +1,18 @@
 <h1>All Games</h1>
 
+<div class="searchControls">
+    <label for="searchQuery">Search for Game by Name</label>
+    <input id="searchQuery" type="text" [(ngModel)]="searchQuery">
+
+    <button class="btn btn-primary" (click)="filterData()">Search</button>
+</div>
+
 <table class="table" *ngIf="data">
     <thead>
         <th style="width: 20%">Name</th>
         <th style="width: 50%">Description</th>
         <th style="width: 20%">Release Date</th>
-        <th style="width:  15%">Rating / 10</th>
+        <th style="width: 15%">Rating / 10</th>
         <th style="width: 5%">Action</th>
     </thead>
     <tbody>

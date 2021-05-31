@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace DAL.Repositories
 {
@@ -18,7 +19,12 @@ namespace DAL.Repositories
 
         public async Task<List<TEntity>> GetPagedList(int pageSize, int pageNum)
         {
-            return await _context.Set<TEntity>().Skip((pageSize * pageNum) - pageSize).Take(pageSize).DefaultIfEmpty().ToListAsync();
+            if (pageSize > 0 && pageNum > 0)
+            {
+                var result = await _context.Set<TEntity>().Skip((pageSize * pageNum) - pageSize).Take(pageSize).DefaultIfEmpty().ToListAsync();
+                return result;
+            }
+            else throw new ArgumentException("Page arguments must be greater than 0");
         }
         public async Task<List<TEntity>> GetList()
         {

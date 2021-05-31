@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Context
 {
+    /// <summary>
+    /// The DB Context for the system
+    /// </summary>
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions options) : base(options)

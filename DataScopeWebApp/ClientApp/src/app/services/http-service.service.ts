@@ -41,4 +41,10 @@ export class HttpServiceService {
 
     return this.http.delete<Game>(url);
   }
+
+  searchGamesByName(query: string){
+    const url = this.gameControllerUrl + '/getByName?name=' + query;
+
+    return this.http.get<GamePageData>(url);
+  }
 }
